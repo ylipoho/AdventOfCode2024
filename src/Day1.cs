@@ -4,7 +4,7 @@
 	{
 		public static int GetDistancesSum_v1()
 		{
-			(IEnumerable<int> firstList, IEnumerable<int> secondList) = PrepareNumberLists();
+			var (firstList, secondList) = PrepareNumberLists();
 
 			return firstList
 						.Zip(secondList)
@@ -14,7 +14,7 @@
 
 		public static int GetSimilarityScoresSum_v2()
 		{
-			(IEnumerable<int> firstList, IEnumerable<int> secondList) = PrepareNumberLists();
+			var (firstList, secondList) = PrepareNumberLists();
 
 			return firstList
 						.Select(first => first * secondList.Count(second => second == first))
