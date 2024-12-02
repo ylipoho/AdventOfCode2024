@@ -1,7 +1,4 @@
-﻿using System.Data;
-using System.Diagnostics;
-
-namespace AdventOfCode2024.src
+﻿namespace AdventOfCode2024.src
 {
 	internal class Day2
 	{
