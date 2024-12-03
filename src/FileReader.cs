@@ -1,12 +1,12 @@
 ﻿namespace AdventOfCode2024.src
 {
-	public static class FileReader
-	{
-		private static readonly string FilePath = @"..\..\..\resources\Day{0}-Input.txt";
+    public static class FileReader
+    {
+        private static readonly string FilePath = @"..\..\..\resources\Day{0}-Input.txt";
 
-		public static IEnumerable<string> ReadFile(string id)
-		{
-			return File.ReadAllLines(string.Format(FilePath, id));
-		}
-	}
+        public static IEnumerable<string> ReadFile(string id)
+        {
+            return File.ReadAllLines(string.Format(FilePath, id));
+        }
+    }
 }
