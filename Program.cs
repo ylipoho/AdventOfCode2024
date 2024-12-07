@@ -12,6 +12,8 @@ namespace AdventOfCode2024
             Console.WriteLine($"2.2: {Day2.GetSafeReportsNum_v2()}");
             Console.WriteLine($"3.1: {Day3.GetMultiplicationsSum_v1()}");
             Console.WriteLine($"3.2: {Day3.GetMultiplicationsSum_v2()}");
+            Console.WriteLine($"7.1: {Day7.GetTotalCalibrationResult(taskPart: 1)}");
+            Console.WriteLine($"7.2: {Day7.GetTotalCalibrationResult(taskPart: 2)}");
         }
     }
 }
