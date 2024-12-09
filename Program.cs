@@ -14,6 +14,8 @@ namespace AdventOfCode2024
             Console.WriteLine($"3.2: {Day3.GetMultiplicationsSum_v2() == 62098619}");
             Console.WriteLine($"7.1: {Day7.GetTotalCalibrationResult(taskPart: 1) == 1430271835320}");
             Console.WriteLine($"7.2: {Day7.GetTotalCalibrationResult(taskPart: 2) == 456565678667482}");
+            Console.WriteLine($"8.1: {Day8.GetAntinodeLocationsCount(taskPart: 1) == 311}");
+            Console.WriteLine($"8.2: {Day8.GetAntinodeLocationsCount(taskPart: 2) == 1115}");
         }
     }
 }
