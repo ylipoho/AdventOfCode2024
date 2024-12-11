@@ -6,7 +6,7 @@ namespace AdventOfCode2024.src
     {
         public static int GetMultiplicationsSum_v1()
         {
-            return FileReader.ReadFile("3")
+            return FileReader.ReadLines("3")
                             .Select(line => Regex
                                             .Matches(line, @"(?<=mul\()\d+,\d+(?=\))")
                                             .Select(m => m.Value
@@ -19,7 +19,7 @@ namespace AdventOfCode2024.src
 
         public static int GetMultiplicationsSum_v2()
         {
-            string line = string.Join(string.Empty, FileReader.ReadFile("3"));
+            string line = string.Join(string.Empty, FileReader.ReadLines("3"));
             var matches = Regex.Matches(line, @"(?<=mul\()\d+,\d+(?=\))|do\(\)|don't\(\)");
 
             int sum = 0;

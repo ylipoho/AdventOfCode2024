@@ -23,7 +23,7 @@
 
         private static (IEnumerable<int>, IEnumerable<int>) PrepareNumberLists()
         {
-            var lines = FileReader.ReadFile("1");
+            var lines = FileReader.ReadLines("1");
             var numbers = lines.Select(x => x.Split(' ', StringSplitOptions.RemoveEmptyEntries));
 
             return (numbers.Select(x => int.Parse(x[0])).Order(),

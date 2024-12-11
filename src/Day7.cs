@@ -4,7 +4,7 @@
     {
         public static long GetTotalCalibrationResult(int taskPart)
         {
-            var lines = FileReader.ReadFile("7")
+            var lines = FileReader.ReadLines("7")
                              .Select(line => line.Split(": "));
             long result = 0;
 

@@ -5,7 +5,7 @@
         public static int GetSafeReportsNum_v1()
         {
             var lines = FileReader
-                            .ReadFile("2")
+                            .ReadLines("2")
                             .Select(l => l
                                         .Split(' ')
                                         .Select(n => int.Parse(n))
@@ -17,7 +17,7 @@
         public static int GetSafeReportsNum_v2()
         {
             var lines = FileReader
-                            .ReadFile("2")
+                            .ReadLines("2")
                             .Select(l => l
                                         .Split(' ')
                                         .Select(n => int.Parse(n))

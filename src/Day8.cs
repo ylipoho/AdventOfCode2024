@@ -4,7 +4,7 @@
     {
         public static int GetAntinodeLocationsCount(int taskPart)
         {
-            var lines = FileReader.ReadFile("8").ToList();
+            var lines = FileReader.ReadLines("8").ToList();
             List<(char Symbol, int X, int Y)> antennas = [];
 
             for (int i = 0; i < lines.Count; i++)
