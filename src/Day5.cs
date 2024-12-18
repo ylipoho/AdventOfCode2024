@@ -6,7 +6,8 @@
         {
             var lines = FileReader.ReadLines("5");
             var rules = lines.TakeWhile(line => line.Contains('|'))
-                                .Select(line => line.Split('|'));
+                                .Select(line => line.Split('|'))
+                                .ToArray();
             var updatesLines = lines.SkipWhile(line => !line.Contains(','));
             int sum = 0;
 
@@ -31,10 +32,10 @@
             return sum;
         }
 
-        static bool IsRuleBroken(string first, string second, IEnumerable<string[]> rules) =>
+        static bool IsRuleBroken(string first, string second, string[][] rules) =>
                         rules.Any(rule => $"{rule.First()}|{rule.Last()}" == $"{second}|{first}");
 
-        static bool IsLineCorrect(string line, IEnumerable<string[]> rules)
+        static bool IsLineCorrect(string line, string[][] rules)
         {
             foreach (var rule in rules)
             {
