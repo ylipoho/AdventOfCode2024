@@ -5,9 +5,9 @@
         public static int GetMiddleElementsSum(int taskPart)
         {
             var lines = FileReader.ReadLines("5");
-            var rules = lines.Where(line => line.Contains('|'))
-                            .Select(line => line.Split('|'));
-            var updatesLines = lines.Where(line => line.Contains(','));
+            var rules = lines.TakeWhile(line => line.Contains('|'))
+                                .Select(line => line.Split('|'));
+            var updatesLines = lines.SkipWhile(line => !line.Contains(','));
             int sum = 0;
 
             if (taskPart == 1)
