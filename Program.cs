@@ -26,7 +26,8 @@ namespace AdventOfCode2024
             Console.WriteLine($" 9.2: {Day9.GetFilesystemChecksum(taskPart: 2) == 6286182965311}");
             Console.WriteLine($"10.1: {Day10.GetTrailheadsScoreSum(taskPart: 1) == 501}");
             Console.WriteLine($"10.2: {Day10.GetTrailheadsScoreSum(taskPart: 2) == 1017}");
-            Console.WriteLine($"11.1: {Day11.GetStonesCount_v1() == 220999}");
+            Console.WriteLine($"11.1: {Day11.GetStonesCount(iterationCount: 25) == 220999}");
+            Console.WriteLine($"11.2: {Day11.GetStonesCount(iterationCount: 75) == 261936432123724}"); 
         }
     }
 }

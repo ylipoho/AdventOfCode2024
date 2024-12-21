@@ -1,46 +1,64 @@
 ﻿namespace AdventOfCode2024.src
 {
-    internal class Day11
+    internal static class Day11
     {
-        public static long GetStonesCount_v1()
+        public static long GetStonesCount(int iterationCount)
         {
-            List<long> stones = FileReader
-                                .ReadLine("11")
-                                .Split(' ')
-                                .Select(x => long.Parse(x))
-                                .ToList();
+            var stones = FileReader.ReadLine("11").Split(' ').Select(stone => long.Parse(stone));
+            Dictionary<long, long> stonesInfo = [];
 
-            return UpdateStones(stones, 0).Count;
+            foreach (var item in stones)
+            {
+                stonesInfo[item] = stonesInfo.TryGetValue(item, out long value) 
+                                    ? value + 1 
+                                    : 1;
+            }
+
+            for (int i = 0; i < iterationCount; i++)
+            {
+                Dictionary<long, long> bufferStoneInfo = [];
+
+                foreach (var (stone, stoneCount) in stonesInfo)
+                {
+                    if (stoneCount == 0)
+                    {
+                        continue;
+                    }
+
+                    if (stone == 0)
+                    {
+                        AddStones(1, stoneCount, bufferStoneInfo);
+                        continue;
+                    }
+
+                    string stoneString = stone.ToString();
+
+                    if (stoneString.Length % 2 == 0)
+                    {
+                        AddStones(long.Parse(stoneString[..(stoneString.Length / 2)]), stoneCount, bufferStoneInfo);
+                        AddStones(long.Parse(stoneString[(stoneString.Length / 2)..]), stoneCount, bufferStoneInfo);
+                        continue;
+                    }
+
+                    AddStones(stone * 2024, stoneCount, bufferStoneInfo);
+                }
+
+                stonesInfo = bufferStoneInfo;
+            }
+
+            return stonesInfo.Values.Aggregate((x, y) => x + y);
         }
 
-        static List<long> UpdateStones(List<long> stones, int iteration)
+        static void AddStones(long stone, long stoneCount, Dictionary<long, long> bufferInfo)
         {
-            if (iteration == 25)
+            if (bufferInfo.ContainsKey(stone))
             {
-                return stones;
+                bufferInfo[stone] += stoneCount;
             }
-
-            List<long> newStones =  stones.Select(stone => ProcessStone(stone)).Aggregate((x, y) => [.. x, .. y]);
-            
-            return UpdateStones(newStones, iteration + 1);
-        }
-
-        static List<long> ProcessStone(long stone)
-        {
-            if (stone == 0)
+            else
             {
-                return [1];
+                bufferInfo[stone] = stoneCount;
             }
-
-            string stoneString = stone.ToString();
-
-            if (stoneString.Length % 2 == 0)
-            {
-                return [long.Parse(stoneString[..(stoneString.Length / 2)]),
-                        long.Parse(stoneString[(stoneString.Length / 2)..])];
-            }
-
-            return [stone * 2024];
         }
     }
 }
