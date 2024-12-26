@@ -27,7 +27,9 @@ namespace AdventOfCode2024
             Console.WriteLine($"10.1: {Day10.GetTrailheadsScoreSum(taskPart: 1) == 501}");
             Console.WriteLine($"10.2: {Day10.GetTrailheadsScoreSum(taskPart: 2) == 1017}");
             Console.WriteLine($"11.1: {Day11.GetStonesCount(iterationCount: 25) == 220999}");
-            Console.WriteLine($"11.2: {Day11.GetStonesCount(iterationCount: 75) == 261936432123724}"); 
+            Console.WriteLine($"11.2: {Day11.GetStonesCount(iterationCount: 75) == 261936432123724}");
+            Console.WriteLine($"12.1: {Day12.GetFencePrice(taskPart: 1) == 1433460}"); 
+            Console.WriteLine($"12.2: {Day12.GetFencePrice(taskPart: 2) == 855082}");
         }
     }
 }
